@@ -1,19 +1,81 @@
 @charset "UTF-8";
-/*html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}*/
+
+:root {
+	/*  var-colors */
+--rojo: #e54b4b;
+--pblue: #13293d;
+--sblue: #53a2be;
+--cgblue: #1d84b5;
+--cream: #f8fff4;
+}
 *{
 	margin: 0;
 	padding: 0;
 }
 body {
     flex-direction: column;
-	background: rgb(7, 45, 75);
+	background: var(--pblue);
     min-height: 80vh;    
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	text-align: center;
 	overflow-x: hidden;
 }
-
+/* Desktop view */
+.navbar {
+	width: 100%;
+	background: var(--pblue);
+	border-bottom: 1px solid var(--cream);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 30px;
+	box-sizing: border-box;
+}
+.logo {
+	color: var(--cream);
+}
+.icon,
+.close-btn {
+	display: none;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+.links {
+	display: flex;
+	list-style: none;
+	padding: inherit;
+}
+.links li {
+	margin-right: 10px;
+}
+.links li a {
+	text-decoration:none;
+	color: var(--cream);
+	letter-spacing: -0.5px;
+}
+.links li a:hover {
+	color: var(--rojo);
+}
+.backdrop {
+	display: none;
+	animation: 0.4s ease-in-out fadeIn forwards;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: var(--bluemax);
+	cursor: pointer;
+}
+/*  Banner */
+.landing {
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 60vh;
+}
 .banner { 
 	width: auto;
 	min-height: auto;
@@ -24,7 +86,6 @@ body {
 	padding: 30% 20%;
 	box-sizing: border-box;
 }
-
 .banner-title{
 	/*text-transform: uppercase;*/
 	font-size: 5em;
@@ -36,8 +97,21 @@ body {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;	
 }
+.cover-image {
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+}
+.siteTitle {
+	font-size: 5em;
+	margin-bottom: 16px;
+}
+.siteDescription {
+	color: var(--cream);
+	font-size: 2em;
+}
 .banner-description{
-	color: #ffffff;
+	color: var(--cream);
 	font-size: 3.3em;
 	font-weight: 300;
 }
@@ -58,82 +132,16 @@ body {
 }
 @keyframes fadeIn {
 	to {
-		background: rgba(0, 0, 0, 0.8);
+		background: var(--pblue);
 	}
 }
 .social-bar{
     width: 100%;
     display: flex; 
-    background: #777777;
+    background: var(--bluemax);
     justify-content: center;
     align-items: center;
     padding: 20px 0 20px 0;
-}
-
-/* Desktop view */
-.navbar {
-	width: 100%;
-	background: #999999;
-	border-bottom: 1px solid #ccc;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px 30px;
-	box-sizing: border-box;
-}
-
-.icon,
-.close-btn {
-	display: none;
-	font-size: 1.2em;
-	cursor: pointer;
-}
-.links {
-	display: flex;
-	list-style: none;
-	padding: inherit;
-}
-.links li {
-	margin-right: 10px;
-}
-.links li a {
-	text-decoration:none;
-	color: #575757;
-	letter-spacing: -0.5px;
-}
-.links li a:hover {
-	color: #000;
-}
-.backdrop {
-	display: none;
-	animation: 0.4s ease-in-out fadeIn forwards;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: #756de6;
-	cursor: pointer;
-}
-.landing {
-    display: flex;
-    flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 60vh;
-}
-.cover-image {
-	width: 100%;
-	max-width: 800px;
-	height: auto;
-}
-.siteTitle {
-	font-size: 5em;
-	margin-bottom: 16px;
-}
-.siteDescription {
-	color:#1570d1;
-	font-size: 2em;
 }
 .buttons {
     margin-top: 30px;
@@ -159,7 +167,7 @@ body {
 .contactBtn {
 	background: rgb(187, 187, 187);
 	color: black;
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 }
 footer{ 
     align-items: center;
@@ -167,8 +175,8 @@ footer{
     justify-content: center;
     height: 8vh;
     flex:0;
-   	color:whitesmoke;
-	background-color: rgb(7, 45, 75)
+   	color:var(--cream);
+	background-color: var(--pblue);
  }
 .footer p{
     display: flex;
@@ -389,7 +397,7 @@ footer{
     text-align: left;
     padding: 0 0 0 100px;
     font-family: 'Roboto', sans-serif;
-    color: #00ffff
+    color: #00ffff;
 }
 .name{
 	color:#000;
@@ -399,25 +407,3 @@ footer{
 	color:#00FFFF;
 	margin: 2vh;
 }
-
-/*  star 6 */
-
-.star6 {
-    width: 0;
-    height: 0;
-    border-right: 50px transparent;
-    border-left: 50px transparent;
-    border-bottom: 100px solid #581b98;
-    position: relative;
-    }
-    star6: after{
-        width: 0;
-        height: 0;
-        border-right: 50px transparent;
-        border-left: 50px transparent;
-        border-bottom: 100px solid #581b98;
-        position: absolute;
-        content: "";
-        top: 30px;
-        left: -50px;
-        }
